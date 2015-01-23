@@ -1,0 +1,45 @@
+#contact.page
+  .container
+    .row
+      h1.title.col(ng-bind-html='pageSetting.title')
+    .content.row
+      .contact-left.col
+        span(ng-bind-html='pageSetting.description.long')
+        .contact.row
+          .icon.col
+            span.icon-location.orange
+          .purport.col
+            div
+              .title-sub
+                h2 dsv headquarter
+                .border-black
+              p(ng-bind-html='pageSetting.options.headquarter')
+          .icon.col
+            span.icon-connect.orange
+          .purport.col
+            div
+              .title-sub
+                h2 contact info.
+                .border-black
+              p(ng-bind-html='pageSetting.options.contactinfo')
+      .contact-right.col
+        .row
+          .icon.col
+            span.icon-question.orange
+          .form.col
+            form(action='', method='')
+              fieldset
+                h2 Have an awesome idea ?
+                input(type='text', ng-model='infoCustomer.name', placeholder='Your name...' required)
+                input(type='email', ng-model='infoCustomer.email', placeholder='Email...' required)
+                textarea#textarea( ng-model='infoCustomer.message', placeholder='Message...' required)
+                button(ng-click='submit()')
+                  p ›
+                  p send
+  .map
+    a(href='{{pageSetting.options.map.link}}' target="_blank")
+      img(src="{{backendServer}}/{{pageSetting.options.map.image}}",alt="dsv map")
+      span
+        img.location-map(src="{{pageSetting.options.map.logo}}", alt="location icon")
+  .copyright
+    span ©2014 - Designveloper

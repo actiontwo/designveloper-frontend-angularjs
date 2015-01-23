@@ -1,0 +1,42 @@
+extends ./layout
+block body
+  #logo.logo.fixed
+    div
+      a.logo-fixed(ng-href='#intro', ng-click='resetIndex()')
+        img(src='images/logo_small1.png', alt='dsv logo' width='48' height='32')
+        .simple-line
+    ul#menu.menu(ng-include='', src='topMenu.template')
+    #menu-tablet
+      button.btn-menu-tablet(ng-click='menu_table.status = !menu_table.status')
+        span.icon-list
+      span(ng-hide='menu_table.status') Menu
+      ul.menu.menu-tablet.show-hide(ng-show='menu_table.status', ng-include='', src='topMenu.template')
+    #social.social
+      a.icon-facebook(href='https://www.facebook.com/designveloper', target='_blank')
+      a.icon-twitter_alt(href='https://twitter.com/Designveloper', target='_blank')
+      a.icon-behance(href='https://www.behance.net/designveloper', target='_blank')
+      a.icon-dribbble(href='https://dribbble.com/Designveloper', target='_blank')
+  // Social when responsive to screen 768px
+  #social-responsive(ng-class='{fadeOutRight:!showsocial, fadeInRight:showsocial}')
+    #show-social.social
+      a.icon-facebook(ng-click='toggleSocial()', href='https://www.facebook.com/designveloper', target='_blank')
+      a.icon-twitter_alt(ng-click='toggleSocial()', href='https://twitter.com/Designveloper', target='_blank')
+      a.icon-behance(ng-click='toggleSocial()', href='https://www.behance.net/designveloper', target='_blank')
+      a.icon-dribbble(ng-click='toggleSocial()', href='https://dribbble.com/Designveloper', target='_blank')
+  // Menu for mobile device
+                            #menu-mobile(ng-class='{"fadeOutLeft":!showmenu,fadeInLeft:showmenu}' ng-swipe-left="doneEditMenu()")
+  ul.menu
+    li(ng-click='toggleMenu()', ng-repeat='item in topMenu.list')
+      a(ng-click='changeStatusPage($index)', ng-class='{active_menu: isActive("/"+ item.href)}', ng-href='#{{item.href}}') {{item.name}}
+  // Add your site or application content here
+  #main-page
+    // Click to show/hide menu with screen 320px
+    button#btn-menu-mobile(ng-click='toggleMenu()', ng-class='{"show-menu":!showmenu, "hide-menu":showmenu}')
+      span.icon-list
+    // Click to show/hide social with screen 320px
+    button#btn-social(ng-click='toggleSocial()', ng-class='{"show-social":!showsocial,"hide-social":showsocial,hide:showmenu, animated:showmenu}')
+      span.icon-connect
+    div(class='{{pageClass}}' ui-view)
+        //ng-view
+  block script
+                                                                              

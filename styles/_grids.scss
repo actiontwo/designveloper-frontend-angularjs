@@ -1,0 +1,993 @@
+/**
+ * Gridpak Beta SCSS 
+ *
+ * Generator - http://gridpak.com/
+ * Created by @erskinedesign
+ */
+
+/* Reusable column setup */
+
+.row:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.row {
+  clear: both;
+}
+
+@mixin col {
+  border: 0px solid rgba(0, 0, 0, 0);
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-background-clip: padding-box !important;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+}
+
+.col {
+  @include col;
+}
+
+$total_width: 100%;
+$padding: 0;
+
+@mixin custom_span($num, $gutter_pc, $gutter_px, $padding, $max_columns, $side_margin) {
+  $one_col: ($total_width - 2 * $side_margin - ($gutter_px * ($max_columns - 1))) / $max_columns;
+  width: ($one_col * $num) + ($gutter_px * ($num - 1));
+  margin-left: $gutter_px;
+  padding: $padding;
+}
+
+@mixin screen($max_columns, $padding, $gutter_px, $side_margin) {
+  .col {
+    margin-left: $gutter_px;
+    padding: $padding;
+  }
+
+  .row .col:first-child {
+    margin-left: $side_margin !important;
+  }
+
+  @for $i from 1 through $max_columns {
+    .span_#{$i} {
+      @include custom_span($i, 0, $gutter_px, $padding, $max_columns, $side_margin);
+    }
+  }
+  .first-col {
+    margin-left: $side_margin !important;
+    clear:both
+  }
+}
+
+/* 1. 8 Column Grid 0px - 767px
+-----------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------- */
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+
+  /* --- Gridpak variables ---*/
+  $max_columns: 8;
+  $gutter_px: 3.75%;
+  $gutter_pc: 0;
+  $side_margin: 3.125%;
+
+  @mixin span($num) {
+    @include custom_span($num, 0, $gutter_px, $padding, $max_columns, $side_margin);
+  }
+
+  /*Service Page*/
+  #service {
+    header {
+      p {
+        @include span(8);
+      }
+      .title {
+        @include span(8);
+      }
+    }
+    .service {
+      @include span(8);
+    }
+    .field {
+      @include span(8);
+    }
+  }
+
+  .sub-service {
+    .sub-title,
+    .sub-list {
+      @include span(8);
+    }
+    .design {
+      .box-top-left,
+      .box-top-right, {
+        @include span(8);
+      }
+      .box-bottom-left {
+        @include span(8);
+      }
+      .box-bottom-right {
+        @include span(8);
+      }
+      .working {
+        @include span(8);
+      }
+      .entry {
+        @include span(8);
+      }
+    }
+    .development {
+      .entry {
+        @include span(8);
+      }
+      .process > div {
+        @include span(7);
+      }
+    }
+    .mobile {
+      .entry {
+        @include span(8);
+      }
+      .box-left,
+      .box-right {
+        @include span(8);
+      }
+      .app-image {
+        @include span(2);
+      }
+      .app-content {
+        @include span(5);
+      }
+    }
+    .software {
+      .device {
+        @include span(8);
+      }
+      .arduino-image {
+        @include span(8);
+      }
+      .raspberry-image {
+        @include span(8);
+      }
+    }
+    .voip {
+      .voip-list div {
+        @include span(8);
+      }
+    }
+  }
+
+  /*Team Page*/
+  #team {
+    .title {
+      @include span(8);
+    }
+    .team_left, .team_right {
+      @include span(8);
+    }
+    .team_right li {
+      @include span(3);
+      &:last-child {
+        @include span(2);
+      }
+    }
+    .name_card {
+      @include span(8);
+    }
+  }
+
+  .sub-team {
+    .sub-title {
+      @include span(8);
+    }
+    .box-left {
+      @include span(8);
+    }
+    .box-right {
+      @include span(8);
+    }
+  }
+
+  .full-team {
+    .name_card {
+      @include span(8);
+    }
+  }
+
+  /*Project Page*/
+  #project {
+    .title {
+      @include span(8);
+    }
+    .list_project li {
+      @include span(8);
+    }
+  }
+
+  .sub-project {
+    .sub-title {
+      @include span(6);
+    }
+    .sub-list span {
+      @include span(8);
+    }
+    .techniques-list {
+      @include span(8);
+    }
+    .website-image {
+      @include span(8);
+    }
+  }
+
+  /*Jobs Page*/
+  #jobs {
+    .jobs-top {
+      h1.title {
+        @include span(8);
+      }
+    }
+    .field {
+      @include span(8);
+    }
+  }
+
+  /*Blog Page*/
+  #blog {
+    .title {
+      @include span(8);
+    }
+    .image-blog {
+      @include span(8);
+    }
+    .content-blog {
+      @include span(8);
+    }
+    .must-read {
+      @include span(8);
+    }
+    .blog-post {
+      @include span(8);
+    }
+  }
+
+  /*Contact Page*/
+  #contact {
+    .title {
+      @include span(8);
+    }
+    .contact-left, .contact-right {
+      @include span(8);
+    }
+    .contact {
+      > div {
+        @include span(8);
+      }
+      .icon {
+        @include span(1);
+      }
+      .purport {
+        @include span(6);
+      }
+    }
+    .contact-right {
+      .icon {
+        @include span(1);
+      }
+      .form {
+        @include span(7);
+      }
+    }
+  }
+}
+
+/* 2. 12 Column Grid 768px - 1023px
+---------------------------------------------------------------------------
+
+----------------------------------------------------------------------------- */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+  /* --- Gridpak variables ---*/
+  $max_columns: 12;
+  $gutter_px: 2.6041667%;
+  $gutter_pc: 0;
+  $side_margin: 1.3020833%;
+
+  @mixin span($num) {
+    @include custom_span($num, 0, $gutter_px, $padding, $max_columns, $side_margin);
+  }
+
+  @include screen($max_columns, $padding, $gutter_px, $side_margin);
+
+  /*Service Page*/
+  #service {
+    header {
+      p {
+        @include span(6);
+      }
+      .title {
+        @include span(5);
+      }
+    }
+    .list_service {
+      .service{
+        @include span(2);
+      }
+      .service:nth-child(2),
+      .service:nth-child(4) {
+        @include span(3)
+      }
+    }
+    .field {
+      @include span(12)
+    }
+  }
+
+  .sub-service {
+    .sub-title,
+    .sub-list {
+      @include span(12);
+    }
+    .design {
+      .box-top-left,
+      .box-top-right, {
+        @include span(12);
+      }
+      .box-bottom-left,
+      .box-bottom-right {
+        @include span(12);
+      }
+      .working {
+        @include span(4);
+      }
+      .entry {
+        @include span(8);
+      }
+    }
+    .development {
+      .entry {
+        @include span(12);
+      }
+      .process > div {
+        @include span(12);
+      }
+    }
+    .mobile {
+      .entry {
+        @include span(12);
+      }
+      .box-left,
+      .box-right {
+        @include span(12);
+      }
+      .app-image {
+        @include span(2);
+      }
+      .app-content {
+        @include span(10);
+      }
+      .mobile-game {
+        .box-left,
+        .box-right {
+          @include span(6);
+        }
+      }
+    }
+    .software {
+      .device {
+        @include span(4);
+      }
+      .arduino-image {
+        @include span(12);
+      }
+      .raspberry-image {
+        @include span(12);
+      }
+    }
+    .voip {
+      .voip-list div {
+        @include span(6);
+      }
+    }
+  }
+
+  /*Team Page*/
+  #team {
+    .title {
+      @include span(5);
+    }
+    .team_left, .team_right {
+      @include span(6);
+    }
+    .team_right li {
+      @include span(4);
+    }
+    .name_card {
+      @include span(3);
+    }
+  }
+
+  .sub-team {
+    .sub-title {
+      @include span(6);
+    }
+    .box-left {
+      @include span(12);
+    }
+    .box-right {
+      @include span(12);
+    }
+  }
+
+  .full-team {
+    .name_card {
+      @include span(3);
+    }
+  }
+
+  /*Project Page*/
+  #project {
+    .title {
+      @include span(5);
+    }
+    .list_project li {
+      @include span(3);
+      margin-bottom: $gutter_px;
+    }
+    .menu_list {
+      @include span(12);
+    }
+  }
+
+  .sub-project {
+    .sub-title,
+    .sub-list span {
+      @include span(12);
+    }
+    .techniques-list {
+      @include span(12);
+    }
+    .website-image {
+      @include span(12);
+    }
+  }
+
+  /*Jobs Page*/
+  #jobs {
+    .title {
+      @include span(4);
+    }
+    .field {
+      @include span(8);
+    }
+    .jobs-offer-tablet {
+      @include span(4);
+    }
+  }
+
+  /*Blog Page*/
+  #blog {
+    .title {
+      @include span(4);
+    }
+    .image-blog {
+      @include span(5);
+    }
+    .content-blog {
+      @include span(7);
+    }
+    .must-read {
+      @include span(12);
+    }
+    .blog-post {
+      @include span(4);
+    }
+  }
+
+  /*Contact Page*/
+  #contact {
+    > .title {
+      @include span(5);
+    }
+    .contact-left, .contact-right {
+      @include span(12);
+    }
+    .contact {
+      > div {
+        @include span(4);
+      }
+      .icon {
+        @include span(1);
+      }
+      .purport {
+        @include span(4.5);
+      }
+    }
+    .contact-right {
+      .icon {
+        @include span(1);
+      }
+      .form {
+        @include span(10.5);
+      }
+    }
+  }
+}
+
+/* 3. 12 Column Grid 1024px - 1279px
+-----------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------- */
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  /* --- Gridpak variables ---*/
+  $max_columns: 12;
+  $gutter_px: 2.994012%;
+  $gutter_pc: 0;
+  $side_margin: 1.1976048%;
+
+  @mixin span($num) {
+    @include custom_span($num, 0, $gutter_px, $padding, $max_columns, $side_margin);
+  }
+
+  @include screen($max_columns, $padding, $gutter_px, $side_margin);
+
+  /*Service Page*/
+  #service {
+    header {
+      p {
+        @include span(5);
+      }
+      .title {
+        @include span(4);
+      }
+    }
+    .list_service {
+      .service{
+        @include span(2);
+      }
+      .service:first-child,
+      .service:nth-child(2) {
+        @include span(3)
+      }
+    }
+
+    .field {
+      @include span(12)
+    }
+  }
+
+  .sub-service {
+    .sub-title,
+    .sub-list {
+      @include span(12);
+    }
+    .design {
+      .box-top-left,
+      .box-top-right, {
+        @include span(6);
+      }
+      .box-bottom-left {
+        @include span(12);
+      }
+      .box-bottom-right {
+        @include span(12);
+      }
+      .working {
+        @include span(4);
+      }
+      .entry {
+        @include span(8);
+      }
+    }
+    .development {
+      .entry {
+        @include span(12);
+      }
+      .process > div {
+        @include span(3);
+      }
+    }
+    .mobile {
+      .entry {
+        @include span(12);
+      }
+      .box-left,
+      .box-right {
+        @include span(6);
+      }
+      .app-image {
+        @include span(3);
+      }
+      .app-content {
+        @include span(8.6);
+      }
+    }
+    .software {
+      .device {
+        @include span(4);
+      }
+      .arduino-image {
+        @include span(8);
+      }
+      .raspberry-image {
+        @include span(3);
+      }
+    }
+    .voip {
+      .voip-list div {
+        @include span(6);
+      }
+    }
+  }
+
+  /*Team Page*/
+  #team {
+    .title {
+      @include span(4);
+    }
+    .team_left, .team_right {
+      @include span(6);
+    }
+    .team_right li {
+      @include span(4);
+    }
+    .name_card {
+      @include span(3);
+    }
+  }
+
+  .sub-team {
+    .sub-title {
+      @include span(5);
+    }
+    .box-left {
+      @include span(8);
+    }
+    .box-right {
+      @include span(4);
+    }
+  }
+
+  .full-team {
+    .name_card {
+      @include span(3);
+    }
+  }
+
+  /*Project Page*/
+  #project {
+    .title {
+      @include span(4);
+    }
+    .list_project li {
+      @include span(3);
+      margin-bottom: $gutter_px;
+    }
+    .menu_list {
+      @include span(12);
+    }
+  }
+
+  .sub-project {
+    .sub-title,
+    .sub-list span {
+      @include span(12);
+    }
+    .techniques-list {
+      @include span(4);
+    }
+    .website-image {
+      @include span(8);
+    }
+  }
+
+  /*Jobs Page*/
+  #jobs {
+    .title {
+      @include span(3);
+    }
+    .field {
+      @include span(8);
+    }
+    .tabs,
+    .entry.animate-switch-container {
+      @include span(12);
+    }
+  }
+
+  /*Blog Page*/
+  #blog {
+    .title {
+      @include span(3);
+    }
+    .image-blog {
+      @include span(4);
+    }
+    .content-blog {
+      @include span(8);
+    }
+    .must-read {
+      @include span(12);
+    }
+    .blog-post {
+      @include span(4);
+    }
+  }
+
+  /*Contact Page*/
+  #contact {
+    > .title {
+      @include span(4);
+    }
+    .contact-left, .contact-right {
+      @include span(6);
+    }
+    .contact {
+      > div {
+        @include span(8);
+      }
+      .icon {
+        @include span(1);
+      }
+      .purport {
+        @include span(4.5);
+      }
+    }
+    .contact-right {
+      .icon {
+        @include span(1);
+      }
+      .form {
+        @include span(10.5);
+      }
+    }
+  }
+}
+
+/* 4. 16 Column Grid 1280px - Infinity
+-----------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------- */
+
+@media screen and (min-width: 1280px) {
+
+  /* --- Gridpak variables ---*/
+  $max_columns: 16;
+  $gutter_px: 2.4038462%;
+  $side_margin: 1.2019231%;
+
+  @mixin span($num) {
+    @include custom_span($num, 0, $gutter_px, $padding, $max_columns, $side_margin);
+  }
+  @include screen($max_columns, $padding, $gutter_px, $side_margin);
+
+  /*Service Page*/
+  #service {
+    header {
+      p {
+        @include span(8);
+      }
+      .title {
+        @include span(5);
+      }
+    }
+    .list_service {
+      .service {
+        @include span(3);
+        &:nth-child(2) {
+          @include span(4)
+        }
+      }
+    }
+    .field {
+      @include span(16)
+    }
+  }
+  .sub-service {
+    .sub-title,
+    .sub-list {
+      @include span(16);
+    }
+    .design {
+      .box-top-left,
+      .box-top-right, {
+        @include span(8);
+      }
+      .box-bottom-left {
+        @include span(4);
+      }
+      .box-bottom-right {
+        @include span(12);
+      }
+      .working {
+        @include span(6);
+      }
+      .entry {
+        @include span(10);
+      }
+    }
+    .development {
+      .entry {
+        @include span(16);
+      }
+      .process > div {
+        @include span(4);
+      }
+    }
+    .mobile {
+      .entry {
+        @include span(16);
+      }
+      .box-left,
+      .box-right {
+        @include span(8);
+      }
+      .app-image {
+        @include span(4);
+      }
+      .app-content {
+        @include span(11.5);
+      }
+    }
+    .software {
+      .device {
+        @include span(4);
+      }
+      .arduino-image {
+        @include span(10);
+      }
+      .raspberry-image {
+        @include span(6);
+      }
+    }
+    .voip {
+      .voip-list div {
+        @include span(8);
+      }
+    }
+  }
+
+  /*Team Page*/
+  #team {
+    .title {
+      @include span(5);
+    }
+    .team_left, .team_right {
+      @include span(8);
+    }
+    .team_right li {
+      @include span(5);
+    }
+    .name_card {
+      @include span(4);
+    }
+  }
+
+  .sub-team {
+    .sub-title {
+      @include span(6);
+    }
+    .box-left {
+      @include span(12);
+    }
+    .box-right {
+      @include span(4);
+    }
+  }
+
+  .full-team {
+    .name_card {
+      @include span(4);
+    }
+  }
+
+  /*Project Page*/
+  #project {
+    .title {
+      @include span(5);
+    }
+    .list_project li {
+      @include span(4);
+      margin-bottom: $gutter_px;
+    }
+    .menu_list {
+      @include span(16);
+    }
+  }
+
+  .sub-project {
+    .sub-title {
+      @include span(15)
+    }
+    .icon-close {
+      @include span(1)
+    }
+    .sub-list span {
+      @include span(16);
+    }
+    .techniques-list {
+      @include span(5);
+    }
+    .website-image {
+      @include span(11);
+    }
+  }
+
+  /*Jobs Page*/
+  #jobs {
+    .title {
+      @include span(4);
+    }
+    .field {
+      @include span(16);
+    }
+    .tabs,
+    .entry.animate-switch-container {
+      @include span(13);
+    }
+  }
+
+  /*Blog Page*/
+  #blog {
+    .title {
+      @include span(4);
+    }
+    .image-blog {
+      @include span(5);
+    }
+    .content-blog {
+      @include span(11);
+    }
+    .must-read {
+      @include span(16);
+    }
+    .blog-post {
+      @include span(5);
+    }
+    .blog-post:nth-child(2) {
+      @include span(6);
+    }
+  }
+
+  /*Contact Page*/
+  #contact {
+    > .title {
+      @include span(5);
+    }
+    .contact-left, .contact-right {
+      @include span(8);
+    }
+    .contact {
+      > div {
+        @include span(8);
+      }
+      .icon {
+        @include span(1.5);
+      }
+      .purport {
+        @include span(5.5);
+      }
+    }
+    .contact-right {
+      .icon {
+        @include span(1.5);
+      }
+      .form {
+        @include span(14);
+      }
+    }
+  }
+}
+ 

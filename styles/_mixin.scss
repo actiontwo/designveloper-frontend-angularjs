@@ -1,0 +1,64 @@
+@mixin transformRotate($value) {
+  -webkit-transform: rotate($value);
+  -moz-transform: rotate($value);
+  -ms-transform: rotate($value);
+  -o-transform: rotate($value);
+  transform: rotate($value);
+}
+@mixin transformScale($value) {
+  -webkit-transform: scale($value);
+  -moz-transform: scale($value);
+  -o-transform: scale($value);
+  -ms-transform: scale($value);
+  transform: scale($value);
+}
+@mixin transition($el,$time,$type) {
+  -webkit-transition: $el $time $type;
+  -moz-transition: $el $time $type;
+  -o-transition: $el $time $type;
+  -ms-transition: $el $time $type;
+  transition: $el $time $type;
+}
+@mixin animation-delay($time) {
+  -webkit-animation-delay: $time;
+  -moz-animation-delay: $time;
+  -o-animation-delay: $time;
+  -ms-animation-delay: $time;
+  animation-delay: $time;
+}
+
+@mixin fontFace($shortNameFont, $fontName) {
+  font-family: $shortNameFont;
+  src: url($fontPath + '/'+ $fontName + '.eot');
+  src: url($fontPath + '/'+ $fontName +'.eot?#iefix') format('embedded-opentype'),
+  url($fontPath + '/'+ $fontName +'.woff') format('woff'),
+  url($fontPath + '/'+ $fontName +'.ttf') format('truetype'),
+  url($fontPath + '/'+ $fontName +'.svg#'+ $shortNameFont) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin transitionSh($time, $type) {
+
+  -webkit-transition: $time all $type;
+  -moz-transition: $time all $type;
+  -o-transition: $time all $type;
+  -ms-transition: $time all $type;
+  transition: $time all $type;
+}
+
+@mixin grayscale($level) {
+  @if $level != 'hover' {
+    -moz-filter: grayscale($level);
+    -ms-filter: grayscale($level);
+    -o-filter: grayscale($level);
+    -webkit-filter: grayscale($level);
+    filter: grayscale($level);
+  } @else {
+    -moz-filter: initial;
+    -ms-filter: initial;
+    -o-filter: initial;
+    -webkit-filter: initial;
+    filter: initial;
+  }
+}

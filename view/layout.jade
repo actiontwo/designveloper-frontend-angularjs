@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Designveloper | Customized web, mobile, VOIP app agency
+    base(href='/')
+    // Viewport mobile tag for sensible mobile support
+    meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(name="description",content="Designveloper is an outsourcing company focusing on design and development of fully customized web app, mobile app, game, VOIP systems and embedded software")
+    // STYLES
+    link(rel="stylesheet", href="css/lib/bootstrap/css/bootstrap.css")
+    link(rel="stylesheet", href="css/lib/angular-motion/angular-motion.min.css")
+    link(rel="stylesheet", href="css/normalize.css")
+    link(rel="stylesheet", href="css/icons/style.css")
+    link(rel="stylesheet", href="css/main.css")
+    // STYLES END
+    block styles
+
+  body(ng-app='companyWsApp', ng-controller='MainCtrl')
+
+    block body
+
+    // The linker searches for this tag and adds js.  If there's no linker, we point to sails.io.js
+    block script
+    // SCRIPTS
+    script(src="public/js/designveloper.js")
+
+    // SCRIPTS END
+
+
+

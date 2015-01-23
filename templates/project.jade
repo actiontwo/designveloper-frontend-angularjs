@@ -1,0 +1,24 @@
+#project.page
+  .container
+    .row
+      h1.title.col(ng-bind-html='pageSetting.title')
+    .row
+      .tabs.menu_list.col()
+        a(ui-sref='project.type({typeofProject:category.slug})' ng-repeat='category in categories' ng-class='{"btn-active-project":isCurrentTab(category.slug)}')
+          | {{category.name}}
+      .menu-list-responsive
+        .menu-select
+          .menu-select-header
+            .menu-selected {{type}}
+            i
+            input(type='hidden', value='', name='demo-category')
+          .menu-select-options
+            ul
+              li(ng-repeat='category in categories')
+                i {{$index + 1}}
+                a(ng-href='#/project/{{category.slug}}') {{category.name}}
+    div(ui-view = '')
+
+
+
+

@@ -1,0 +1,40 @@
+#jobs.page
+  .container
+    .jobs-top
+      .row
+        h1.title.col(ng-bind-html='pageSetting.title')
+      .row
+        h2.field.col(ng-bind-html='pageSetting.description.long')
+        .jobs-offer-tablet.col(ng-bind-html='pageSetting.options.tabletoffer')
+    .jobs-list
+      accordion(close-others='oneAtATime')
+          // Technical Manager
+          accordion-group.group(ng-repeat='job in jobs', is-open='status[job.id]')
+            accordion-heading
+              .jobs(ng-click='menu_show(".tabs-1" ,job.id)')
+                div: span.pull-left.icon-expand.check(ng-class='{"icon-collapse": status[job.id], "icon-expand": !status[job.id]}')
+                .jobs-position(ng-click='menu_show_mobile(".tabs-mobile")' ng-bind-html='job.title')
+            div
+              .row
+                .tabs.col.tabs-full
+                  a(ng-repeat='list in job.listRequire' ng-class='{"btn-active-jobs":getCurrentTab(job.id,$index)}', ng-click='setCurrentTab(job.id, $index)')
+                    | {{list.title}}
+                .tabs.responsive-tablet.tabs-1
+                  div(ng-repeat='list in job.listRequire')
+                    a(ng-class='{"btn-active-jobs":getCurrentTab(job.id, $index)}', ng-click='setCurrentTab(job.id, $index)') {{list.title}}
+              .row
+                .entry.animate-switch-container.col
+                  .animate-switch(ng-repeat='list in job.listRequire' ng-show='getCurrentTab(job.id, $index)')
+                    h5(ng-bind-html='list.abstract')
+                    p(ng-bind-html='list.list')
+
+                .entry.responsive-mobile.tabs-mobile
+                  div(ng-repeat= "list in job.listRequire")
+                    label {{list.title}}
+                    h5(ng-bind-html='list.abstract')
+                    p(ng-bind-html='list.list')
+                .contact-info
+                  div(ng-bind-html='pageSetting.options.contactInfo')
+                  .line-right
+
+        .jobs-offer(ng-bind-html='pageSetting.options.fulloffer')

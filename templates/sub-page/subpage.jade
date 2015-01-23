@@ -1,0 +1,14 @@
+.design.sub-service.container
+  .row
+    h1.sub-title.col
+      a(href='#/service', ng-click='addLeftPage()' ng-class='{"arrow-position":hidePage}')
+        img(src='images/back-btn.png', onmouseover='this.src=\'images/back-btn-hover.svg\'',
+        onmouseout='this.src=\'images/back-btn.svg\'', border='0', alt='back icon')
+      span {{currentPage.title}}
+  .row
+    .sub-list.col
+      a(ng-repeat='list in currentPage.subpage.page' ui-sref='sub-service.page({page:list.slug})'
+      ng-class='{"active": subpage.slug ==list.slug}') {{list.title}}
+
+  div(style='position:relative')
+    ui-view(class='')

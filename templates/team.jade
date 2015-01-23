@@ -1,0 +1,45 @@
+#team.page
+  .container.clearfix
+    .row
+      h1.title.col(ng-bind-html='dataSetting.title')
+    .team_content.row
+      .team_left.col
+        h3.field(ng-bind-html='dataSetting.description.long')
+        a.link(ng-click='addRightPage()', ng-href='/team/vision')
+          span.icon-plus
+          | mission/ vission
+      .team_right.col
+        .status.clearfix
+          h2 some fantastic stats.
+          ul.row
+            li.col
+              span#lines-of-code.number 0
+              span.unit thousand
+              span.desc lines of code
+            li.col
+              span#pixels-crafted.number 0
+              span.unit thousand
+              span.desc pixels crafted
+            li.col
+              span#beer-bottles.number 0
+              span.unit thousand
+              span.desc beer bottles
+    .team_list.row
+      .name_card.col(ng-repeat='member in showTeams')
+        img.first.main_image(ng-src='{{backendServer}}/{{member.first.urlImage}}', width='282',height='149', alt='dsv member image')
+        img.second.main_image(ng-src='{{backendServer}}/{{member.second.urlImage}}',  width='282', height='149', alt='dsv member image')
+        .member-info
+          .first
+            span.name {{member.first.name}}
+            span.position {{member.first.position}}
+          .second
+            span.name {{member.second.name}}
+            span.position {{member.second.position}}
+    .team_list_mobile
+      .name_card.col(ng-repeat='member_mobile in teams')
+        img.main_image(ng-src='{{backendServer}}/{{member_mobile.urlImage}}', alt='dsv member image')
+        span.name {{member_mobile.name}}
+        span.position {{member_mobile.position}}
+    a.link(ng-click='addRightPage()', ng-href='/team/full-team',class="full-team")
+      span.icon-plus
+      | explorer full team

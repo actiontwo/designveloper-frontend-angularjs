@@ -1,0 +1,37 @@
+@font-face {
+  @include fontFace($brandon_grotesquelight, 'brandon_light-webfont');
+}
+
+@font-face {
+  @include fontFace($proxima_nova_tlight, 'mark_simonson_-_proxima_nova_light-webfont');
+}
+
+@font-face {
+  @include fontFace($brandon_grotesqueblack, 'brandon_blk-webfont');
+}
+
+@font-face {
+  @include fontFace($brandon_grotesquethin, 'brandon_thin-webfont');
+}
+
+@font-face {
+  @include fontFace($proxima_nova_blblack, 'mark_simonson_-_proxima_nova_black-webfont');
+}
+
+@font-face {
+  @include fontFace($proxima_nova_bold, 'proximanova-bold');
+}
+
+@font-face {
+  @include fontFace($brandon_grotesquebold, 'brandon_bld-webfont');
+}
+
+@font-face {
+  @include fontFace($brandon_grotesquemedium, 'brandon_grotesque_medium');
+}
+
+@font-face {
+  @include fontFace($proxima_nova_thin, 'mark_simonson_-_proxima_nova_thin-webfont');
+}
+
+
