@@ -24,10 +24,11 @@ block body
       a.icon-behance(ng-click='toggleSocial()', href='https://www.behance.net/designveloper', target='_blank')
       a.icon-dribbble(ng-click='toggleSocial()', href='https://dribbble.com/Designveloper', target='_blank')
   // Menu for mobile device
-                            #menu-mobile(ng-class='{"fadeOutLeft":!showmenu,fadeInLeft:showmenu}' ng-swipe-left="doneEditMenu()")
-  ul.menu
-    li(ng-click='toggleMenu()', ng-repeat='item in topMenu.list')
-      a(ng-click='changeStatusPage($index)', ng-class='{active_menu: isActive("/"+ item.href)}', ng-href='#{{item.href}}') {{item.name}}
+
+  #menu-mobile(ng-class='{"fadeOutLeft":!showmenu,fadeInLeft:showmenu}' ng-swipe-left="doneEditMenu()")
+    ul.menu
+      li(ng-click='toggleMenu()', ng-repeat='item in topMenu.list')
+        a(ng-click='changeStatusPage($index)', ng-class='{active_menu: isActive("/"+ item.href)}', ng-href='#{{item.href}}') {{item.name}}
   // Add your site or application content here
   #main-page
     // Click to show/hide menu with screen 320px

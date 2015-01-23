@@ -333,8 +333,7 @@ $padding: 0;
   }
 
   .sub-service {
-    .sub-title,
-    .sub-list {
+    .sub-title {
       @include span(12);
     }
     .design {
@@ -568,8 +567,7 @@ $padding: 0;
   }
 
   .sub-service {
-    .sub-title,
-    .sub-list {
+    .sub-title {
       @include span(12);
     }
     .design {
@@ -796,8 +794,7 @@ $padding: 0;
     }
   }
   .sub-service {
-    .sub-title,
-    .sub-list {
+    .sub-title {
       @include span(16);
     }
     .design {
