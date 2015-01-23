@@ -8,6 +8,7 @@
     $rootScope.imageDefault = '/images/no-image.png'
     $rootScope.backendServer = 'http://localhost:1337'
 
+
     $scope.isActive = (route, index) ->
       return $location.path().indexOf(route) isnt -1
 
