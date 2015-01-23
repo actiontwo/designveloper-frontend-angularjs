@@ -1,0 +1,44 @@
+.error-page {
+  margin-top: 160px;
+  font-family: $proxima_nova_thin;
+  .title {
+    font-family: $brandon_grotesquethin;
+    font-size: 100px;
+    color: $gray;
+  }
+  .error-define {
+    text-transform: uppercase;
+    color: $yellow;
+    font-size: 20px;
+    margin: 42px 0 50px 0;
+    width: 100%;
+  }
+  p {
+    width: 100%;
+    a {
+      &:hover {
+        border-bottom: 1px $yellow dotted;
+      }
+    }
+  }
+  .error-menu {
+    font-family: brandon_grotesquelight;
+    font-size: 14px;
+    div {
+      display: inline-block;
+      width: 170px;
+      vertical-align: top;
+      span {
+        display: block;
+        line-height: 36px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1279px) {
+  .error-page {
+    .container {
+      width: 90%;
+    }
+  }
+}

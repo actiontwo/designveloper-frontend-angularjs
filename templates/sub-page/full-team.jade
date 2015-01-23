@@ -1,0 +1,23 @@
+.full-team.sub-team.container(ng-init='numberMember=4')
+  .row
+    | {{backendServer}}
+    h3.sub-title.col
+      a(href='#/team', ng-click='addLeftPage()')
+        i
+          img(src='images/back-btn.svg', onmouseover='this.src=\'images/back-btn-hover.svg\'',
+        onmouseout='this.src=\'images/back-btn.svg\'', border='0', alt='back icon')
+        span back
+      span explore team
+  .sub-main.row
+    .name_card.col(ng-repeat='member in teams | limitTo : numberMember', ng-class='{"first-col":$index % 4 == 0}')
+      img.main_image(ng-src='{{backendServer}}/{{member.urlImage}}', alt='dsv member image')
+      span.name {{member.name}}
+      span.position {{member.position}}
+      span.info {{member.info}}
+      .social-team
+        a(ng-repeat='social in member.socials', href="{{social.href}}" target="_blank")
+          span(class="{{social.icon}}")
+  .view-more(ng-click='numberMember = numberMember+4' ng-show="teams.length > numberMember")
+     .img.bounce(ng-click='viewMore()')
+       img(src="images/mouse_scroll.png", alt='mouse icon')
+       span Click to view more

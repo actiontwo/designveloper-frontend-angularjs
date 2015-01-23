@@ -1,0 +1,26 @@
+.sub-project
+  .sub-header
+    .row
+      h3.sub-title.col {{project.name.project}}
+      a.col.icon-close(href="#project/{{type}}", ng-click='hideProject()')
+    .sub-list.row
+      span.col /{{project.name.company}}
+    a.lauch-website(target='_blank', href='{{project.name.href}}')
+      span.icon-arrow-up-right
+  .sub-main.row
+    .website-image.responsive-tablet.col
+      img(ng-src='{{backendServer}}/{{project.urlImage.main}}', alt='', err-src='{{backendServer}}/{{imageDefault}}')
+    .techniques-list.col
+      p(ng-repeat='tech in project.listTech')
+        span.icon-checkmark
+        label {{tech}}
+      a.lauch-website(target='_blank', href='{{project.name.href}}/')
+        p
+          span.icon-arrow-up-right
+          | lauch website
+    .website-image.col
+      img(ng-src='{{backendServer}}/{{project.urlImage.main}}', alt='',
+      err-src='{{backendServer}}/{{imageDefault}}')
+  .technology
+    img(alt='', ng-repeat='imgTech in project.urlImageTech ', ng-src='{{backendServer}}/{{imgTech.logo}}' , err-src='{{backendServer}}/{{imageDefault}}')
+  p.introduction {{project.introduction}}

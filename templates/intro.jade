@@ -1,0 +1,25 @@
+#intro.page(ng-controller='ScrollIntroPageCtrl')
+  #home_mask
+  .simple-line
+  #logo_intro.logo
+    img(src='images/logo_orange.png' width='67' height='45', alt='dsv logo')
+    span.company-name Designveloper
+  .social
+    a.icon-facebook(href='https://www.facebook.com/designveloper', target='_blank')
+    a.icon-twitter_alt(href='https://twitter.com/Designveloper', target='_blank')
+    a.icon-behance(href='https://www.behance.net/designveloper', target='_blank')
+    a.icon-dribbble(href='https://dribbble.co m/Designveloper', target='_blank')
+  img.img-background(src='images/bg_home.jpg' width='1006' height='566', alt='dsv background')
+  div.slogan
+    h2 realizing
+    h1 IDEAS
+    p
+      | We design and build &#32;
+      strong websites, mobile applications &#32;
+      | and
+      | other awesome digital media.
+  #icon-arrow
+    a(href='#service')
+      .img.bounce(ng-click='addUpPage()')
+        img(ng-src='images/mouse_scroll.png' width='23' height='61', alt='mouse icon')
+      span Click to find out

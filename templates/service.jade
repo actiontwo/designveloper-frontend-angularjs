@@ -1,0 +1,28 @@
+div#service.page
+  div.container
+    header
+      div.row
+        h1.title.col(ng-bind-html='dataSetting.title')
+      div.row
+        p.col(ng-bind-html='dataSetting.description.short')
+    div.list_service.clearfix.row
+      section.service.animated.col(ng-repeat='service in data')
+        a.title-service(href="/sub-service/{{service.href}}", ng-click='addRightPage()')
+          span(class='{{service.icon}}')
+          h2 {{service.title}}
+        ul
+          li(ng-repeat='technology in service.techList') {{technology}}
+    div.row
+      h3.field.col(ng-bind-html='dataSetting.description.long')
+
+    .bxslider.technology.full
+      li(ng-repeat='lists in normalLayout')
+        a(href='{{list.href}}' target='_blank' ng-repeat='list in lists')
+          img(ng-src='{{backendServer}}/{{list.logo}}', err-src='{{backendServer}}/{{imageDefault}}',
+          title='{{list.name}}' )
+
+    .bxslider.technology.mobile
+      li(ng-repeat='lists in mobileLayout')
+        a(href='{{list.href}}' target='_blank' ng-repeat='list in lists')
+          img(ng-src='{{backendServer}}/{{list.logo}}', err-src='{{backendServer}}/{{imageDefault}}',
+          title='{{list.name}}' width='80')
