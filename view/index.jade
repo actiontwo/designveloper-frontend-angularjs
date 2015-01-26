@@ -3,7 +3,7 @@ block body
   #logo.logo.fixed
     div
       a.logo-fixed(ng-href='#intro', ng-click='resetIndex()')
-        img(src='images/logo_small1.png', alt='dsv logo' width='48' height='32')
+        img(src='{{backendServer}}/images/logo_small1.png', alt='dsv logo' width='48' height='32')
         .simple-line
     ul#menu.menu(ng-include='', src='topMenu.template')
     #menu-tablet
