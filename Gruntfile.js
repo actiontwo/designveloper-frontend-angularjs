@@ -5,6 +5,7 @@ var tasks = [
   'coffee:compile',
   'concat:jsFiles',
   'sass:dist',
+  'cssmin:dist',
   'copy:dev',
   'copy:images',
   'uglify:minFile',
@@ -141,6 +142,12 @@ module.exports = function (grunt) {
         }
       }
     },
+    cssmin:{
+      dist: {
+        src: ['public/css/main.css'],
+        dest: 'public/css/main.css'
+      }
+    },
     clean: {
       js: ["coffee/js"],
       public: ["public"]
@@ -165,6 +172,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Default task(s).
   grunt.registerTask('default', tasks);

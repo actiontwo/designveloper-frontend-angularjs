@@ -5,7 +5,7 @@
       status : false
 
   MainCtrl = ($scope, $location, $rootScope, $window) ->
-    $rootScope.imageDefault = 'https://ad.designveloper.com/images/no-image.png'
+    $rootScope.imageDefault = '/images/no-image.png'
     $rootScope.backendServer = 'https://ad.designveloper.com'
 #    $rootScope.backendServer = 'http://localhost:1337'
 

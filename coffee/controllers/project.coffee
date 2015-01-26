@@ -58,12 +58,13 @@
         $('.list_project li .show-detail').css({'display' : 'none'})
         $rootScope.check = null
         return
+
       if $rootScope.check isnt id
         projectId = $("#" + "project_#{id}").offset().top + 240
         if detail > 1000 and $rootScope.check
           detail = projectId - projectDetails
         $rootScope.check = id
-        $rootScope.showItemProject(id)
+        $rootScope.showItemProject(id,projectId)
 
         return
     $rootScope.showItemProject = (id)->
@@ -71,7 +72,6 @@
       $('.list_project li .show-detail').css({'display' : 'none'})
       height = $("#" + "project_detail_#{id}").height() + 300
       $("#" + "project_#{id}").css({'height' : "#{height}px", '-webkit-transition' : 'height 0.5s linear', 'transition' : 'height 0.5s linear'})
-      console.log height
       setTimeout (->
         $("html, body").animate
           scrollTop : projectId
@@ -94,6 +94,7 @@
     index = _.indexOf($rootScope.data, _.findWhere($rootScope.data, {id : $rootScope.check}));
     $rootScope.numberProject = (Math.floor(index / 4) + 1) * 4
     $rootScope.showItemProject($rootScope.check)
+
   angular.module("ProjectController", [])
   .controller "ProjectCtrl", [ "$scope", "$http", "$stateParams", "$rootScope", ProjectCtrl ]
 
