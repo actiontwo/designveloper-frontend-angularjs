@@ -52,24 +52,31 @@
       ), 500
 
     $rootScope.showProject = (id)->
-      $('.list_project li').removeAttr('style')
-      $('.list_project li show-detail').css({'display' : 'none'})
+
+      if $("#" + "project_#{id}").hasClass('show-li')
+        $('.list_project li').removeAttr('style')
+        $('.list_project li .show-detail').css({'display' : 'none'})
+        $rootScope.check = null
+        return
       if $rootScope.check isnt id
         projectId = $("#" + "project_#{id}").offset().top + 240
         if detail > 1000 and $rootScope.check
           detail = projectId - projectDetails
         $rootScope.check = id
-        $('#' + "project_detail_#{id} .website-image img").one("load", ()->
-          height = $("#" + "project_detail_#{id}").height() + 300
-          $("#" + "project_#{id}").css({'height' : "#{height}px", '-webkit-transition' : 'height 0.5s linear', 'transition' : 'height 0.5s linear'})
-          setTimeout (->
-            $("html, body").animate
-              scrollTop : projectId
-            , 500
-          ), 100
-        )
+        $rootScope.showItemProject(id)
 
         return
+    $rootScope.showItemProject = (id)->
+      $('.list_project li').removeAttr('style')
+      $('.list_project li .show-detail').css({'display' : 'none'})
+      height = $("#" + "project_detail_#{id}").height() + 300
+      $("#" + "project_#{id}").css({'height' : "#{height}px", '-webkit-transition' : 'height 0.5s linear', 'transition' : 'height 0.5s linear'})
+      console.log height
+      setTimeout (->
+        $("html, body").animate
+          scrollTop : projectId
+        , 500
+      ), 100
 
   ProjectTypeCtrl = ($scope, $http, $stateParams, $rootScope) ->
     $rootScope.check = null
@@ -80,14 +87,13 @@
         $rootScope.selectType = $stateParams.typeofProject
     $http.get("#{$rootScope.backendServer}/project").success (dataProject)->
       $rootScope.data = dataProject
-  #      console.log($rootScope.data)
 
   ProjectItemCtrl = ($scope, $http, $stateParams, $rootScope) ->
     $rootScope.check = $stateParams.nameofProject
 
     index = _.indexOf($rootScope.data, _.findWhere($rootScope.data, {id : $rootScope.check}));
     $rootScope.numberProject = (Math.floor(index / 4) + 1) * 4
-
+    $rootScope.showItemProject($rootScope.check)
   angular.module("ProjectController", [])
   .controller "ProjectCtrl", [ "$scope", "$http", "$stateParams", "$rootScope", ProjectCtrl ]
 
