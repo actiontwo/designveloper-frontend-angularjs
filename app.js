@@ -1,8 +1,5 @@
 var express = require('express');
 var app = express();
-var bodyParser     = require('body-parser');
-var methodOverride = require('method-override');
-var router         = express.Router();
 //CORS middleware
 //var allowCrossDomain = function(req, res, next) {
 //  res.header('Access-Control-Allow-Origin', 'designveloper.com');

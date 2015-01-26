@@ -5,8 +5,9 @@
       status : false
 
   MainCtrl = ($scope, $location, $rootScope, $window) ->
-    $rootScope.imageDefault = 'https://cws.designveloper.com/images/no-image.png'
+    $rootScope.imageDefault = 'https://ad.designveloper.com/images/no-image.png'
     $rootScope.backendServer = 'https://ad.designveloper.com'
+#    $rootScope.backendServer = 'http://localhost:1337'
 
     $scope.isActive = (route, index) ->
       return $location.path().indexOf(route) isnt -1

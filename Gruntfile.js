@@ -4,10 +4,10 @@ var tasks = [
   'jade:view',
   'coffee:compile',
   'concat:jsFiles',
-  'uglify:minFile',
   'sass:dist',
   'copy:dev',
   'copy:images',
+  'uglify:minFile',
   'clean:js'
 ];
 var tasksDev = [
