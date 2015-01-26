@@ -1,7 +1,7 @@
 .design.sub-service.container
   .row
     h1.sub-title.col
-      a(href='#/service', ng-click='addLeftPage()' ng-class='{"arrow-position":hidePage}')
+      a(href='/service', ng-click='addLeftPage()' ng-class='{"arrow-position":hidePage}')
         img(src='images/back-btn.svg', onmouseover='this.src=\'images/back-btn-hover.svg\'',
         onmouseout='this.src=\'images/back-btn.svg\'', border='0', alt='back icon')
       span {{currentPage.title}}

@@ -40,13 +40,8 @@ companyWsApp.config [ "$stateProvider", "$urlRouterProvider", "$locationProvider
     templateUrl : 'templates/service.html'
     controller : 'ServiceCtrl'
 
-  .state "abcd",
-    url : "/abc"
-    templateUrl : 'templates/service.html'
-#    controller : 'ServiceCtrl'
-
   .state "sub-service",
-    url : "/sub-service/:subpage"
+    url : "/service/:subpage"
     templateUrl : 'templates/sub-page/subpage.html'
     controller : 'SubpageCtrl'
 

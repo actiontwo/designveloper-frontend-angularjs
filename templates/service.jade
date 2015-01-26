@@ -7,7 +7,7 @@ div#service.page
         p.col(ng-bind-html='dataSetting.description.short')
     div.list_service.clearfix.row
       section.service.animated.col(ng-repeat='service in data')
-        a.title-service(href="/sub-service/{{service.href}}", ng-click='addRightPage()')
+        a.title-service(href="/service/{{service.href}}", ng-click='addRightPage()')
           span(class='{{service.icon}}')
           h2 {{service.title}}
         ul

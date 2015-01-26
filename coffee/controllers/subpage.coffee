@@ -16,17 +16,19 @@
   SubpageDetailCtrl = ($scope, $window, $routeParams, $http, $stateParams, $rootScope) ->
     $http.get("#{$rootScope.backendServer}/service?slug=#{$stateParams.subpage}").success (data) ->
       $scope.currentPage = data
-      if $stateParams.page is 'content'
+
+      if $stateParams.page is ''
         $rootScope.hidePage = false
 
       dataPage = data.subpage
       contentPage = $stateParams.page
       $rootScope.listSlug = _.pluck(dataPage.page, 'slug')
       pageIndex = _.indexOf($rootScope.listSlug, contentPage)
-      $rootScope.subpage =
-        currentIndex : pageIndex
-        template : dataPage.page[pageIndex].template
-        slug : dataPage.page[pageIndex].slug
+      if pageIndex isnt -1
+        $rootScope.subpage =
+          currentIndex : pageIndex
+          template : dataPage.page[pageIndex].template
+          slug : dataPage.page[pageIndex].slug
 
   angular.module("SubpageController", []).controller "SubpageCtrl", [ "$scope", "$window", "$routeParams", "$http", "$stateParams", "$rootScope", SubpageCtrl ]
   angular.module("SubpageDetailController", []).controller "SubpageDetailCtrl", [ "$scope", "$window", "$routeParams", "$http", "$stateParams", "$rootScope", SubpageDetailCtrl ])(window,
