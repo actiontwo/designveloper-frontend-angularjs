@@ -1,15 +1,15 @@
 ul.list_project.row()
   li.col(ng-repeat='project in data | filter:{type : selectType} | limitTo : numberProject',
-  ng-class='{  "first-col":$index % 4 == 0 , "show-li":check == project.id}' id="project_{{project.id}}"
-  ng-click='showProject(project.id)')
-    a.cover-project.project-item(ui-sref='project.type.item({nameofProject : project.id})' , ng-class='{"after fadeInUp":check ==project.id}')
+  ng-class='{  "first-col":$index % 4 == 0 , "show-li":check == project.slug}' id="project_{{project.slug}}"
+  ng-click='showProject(project.slug)')
+    a.cover-project.project-item(ui-sref='project.type.item({nameofProject : project.slug})' , ng-class='{"after fadeInUp":check ==project.slug}')
       img(ng-src='{{backendServer}}/{{project.urlImage.thumbnail}}' err-src='{{backendServer}}/{{imageDefault}}',alt='')
       .mask.mask-1
       .project-info
         h3 {{project.name.project}}
         span {{project.name.customer}}
 
-    .show-detail.container(ui-view='' ng-class='(check == project.id) ?  "display_detail" : ""' id='project_detail_{{project.id}}')
+    .show-detail.container(ui-view='' ng-class='(check == project.slug) ?  "display_detail" : ""' id='project_detail_{{project.slug}}')
 
 .show-more(ng-click='numberProject = numberProject+4' ng-show="(data | filter:{type : selectType}).length > numberProject")
   span(ng-click='showMore()') show more

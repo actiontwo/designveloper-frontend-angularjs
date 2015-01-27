@@ -118,42 +118,6 @@ companyWsApp.config [ "$stateProvider", "$urlRouterProvider", "$locationProvider
     url : "/contact"
     templateUrl : 'templates/contact.html'
     controller : 'ContactCtrl'
-
-
-#  $locationProvider.hashPrefix "!"
-#  $routeProvider
-#  .when '/',
-#    templateUrl : 'templates/intro.html'
-#    controller : 'IntroCtrl'
-#  .when '/service',
-#    templateUrl : 'templates/service.html'
-#    controller : 'ServiceCtrl'
-#  .when '/team',
-#    templateUrl : 'templates/team.html'
-#    controller : 'TeamCtrl'
-#  .when '/project/:typeofProject?/:nameofProject?',
-#    templateUrl : 'templates/project.html'
-#    controller : 'ProjectCtrl'
-#  .when '/jobs',
-#    templateUrl : 'templates/jobs.html'
-#    controller : 'JobsCtrl'
-#  .when '/blog',
-#    templateUrl : 'templates/blog.html'
-#    controller : 'BlogCtrl'
-#  .when '/contact',
-#    templateUrl : 'templates/contact.html'
-#    controller : 'ContactCtrl'
-#  .when '/team/vision',
-#    templateUrl : '/templates/sub-page/vision-team.html'
-#    controller : 'VisionTeamCtrl'
-#  .when '/team/full-team',
-#    templateUrl : '/templates/sub-page/full-team.html'
-#    controller : 'FullTeamCtrl'
-#  .when '/service/:subpage/:page?',
-#    templateUrl : 'templates/sub-page/subpage.html'
-#    controller : 'SubpageCtrl'
-#  .otherwise
-#      redirectTo : '/'
 ]
 
 companyWsApp.directive "errSrc", ->

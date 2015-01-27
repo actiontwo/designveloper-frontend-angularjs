@@ -51,27 +51,27 @@
         , 500
       ), 500
 
-    $rootScope.showProject = (id)->
+    $rootScope.showProject = (slug)->
 
-      if $("#" + "project_#{id}").hasClass('show-li')
+      if $("#" + "project_#{slug}").hasClass('show-li')
         $('.list_project li').removeAttr('style')
         $('.list_project li .show-detail').css({'display' : 'none'})
         $rootScope.check = null
         return
 
-      if $rootScope.check isnt id
-        projectId = $("#" + "project_#{id}").offset().top + 240
+      if $rootScope.check isnt slug
+        projectId = $("#" + "project_#{slug}").offset().top + 240
         if detail > 1000 and $rootScope.check
           detail = projectId - projectDetails
-        $rootScope.check = id
-        $rootScope.showItemProject(id,projectId)
+        $rootScope.check = slug
+        $rootScope.showItemProject(slug,projectId)
 
         return
-    $rootScope.showItemProject = (id)->
+    $rootScope.showItemProject = (slug)->
       $('.list_project li').removeAttr('style')
       $('.list_project li .show-detail').css({'display' : 'none'})
-      height = $("#" + "project_detail_#{id}").height() + 300
-      $("#" + "project_#{id}").css({'height' : "#{height}px", '-webkit-transition' : 'height 0.5s linear', 'transition' : 'height 0.5s linear'})
+      height = $("#" + "project_detail_#{slug}").height() + 300
+      $("#" + "project_#{slug}").css({'height' : "#{height}px", '-webkit-transition' : 'height 0.5s linear', 'transition' : 'height 0.5s linear'})
       setTimeout (->
         $("html, body").animate
           scrollTop : projectId
@@ -91,7 +91,7 @@
   ProjectItemCtrl = ($scope, $http, $stateParams, $rootScope) ->
     $rootScope.check = $stateParams.nameofProject
 
-    index = _.indexOf($rootScope.data, _.findWhere($rootScope.data, {id : $rootScope.check}));
+    index = _.indexOf($rootScope.data, _.findWhere($rootScope.data, {slug : $rootScope.check}));
     $rootScope.numberProject = (Math.floor(index / 4) + 1) * 4
     $rootScope.showItemProject($rootScope.check)
 
